@@ -79,6 +79,40 @@ cp -R fun-title-generator-skill/skills/fun-title-generator .cursor/skills/
 
 如果没有立刻出现，重启 Cursor 或 reload window。
 
+### OpenCode / opencode
+
+OpenCode 支持从项目目录或全局配置目录发现 `SKILL.md`。这个 skill 可以直接安装到 OpenCode 的 native skills path。
+
+全局安装 / Global install:
+
+```sh
+git clone https://github.com/u-u-z/fun-title-generator-skill.git
+mkdir -p ~/.config/opencode/skills
+cp -R fun-title-generator-skill/skills/fun-title-generator ~/.config/opencode/skills/
+```
+
+项目内安装 / Project-local install:
+
+```sh
+git clone https://github.com/u-u-z/fun-title-generator-skill.git
+mkdir -p .opencode/skills
+cp -R fun-title-generator-skill/skills/fun-title-generator .opencode/skills/
+```
+
+安装后路径应该类似：
+
+```text
+~/.config/opencode/skills/fun-title-generator/SKILL.md
+```
+
+或：
+
+```text
+.opencode/skills/fun-title-generator/SKILL.md
+```
+
+OpenCode 也兼容 `.agents/skills/<name>/SKILL.md` 这样的 agent-compatible 路径；如果你希望同一份 skill 同时给多个 agent 工具读取，也可以放到 `.agents/skills/fun-title-generator/`。
+
 ### 更新 / Update
 
 手动安装后，如果要更新：
