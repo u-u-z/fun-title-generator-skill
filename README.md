@@ -91,7 +91,7 @@ Source: [Fauconnier & Turner, "Conceptual Integration Networks", 1998](https://d
 
 ### 良性违背 / Benign Violation Theory
 
-Source: [McGraw & Warren, "Benign Violations", 2010](https://doi.org/10.1177/0956797610376073)
+Source: [McGraw & Warren, "Benign Violations: Making Immoral Behavior Funny", 2010](https://doi.org/10.1177/0956797610376073)
 
 - 原文短摘 / Source excerpt: “violations that are simultaneously seen as benign”
 - 中文译意：幽默需要某种违背，但这种违背同时应被感知为安全、可接受或低风险。
