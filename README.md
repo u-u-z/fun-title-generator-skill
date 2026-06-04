@@ -72,6 +72,74 @@ Use $fun-title-generator to generate titles for: 视频会议以为关麦了，�
 
 The skill works best when the input includes a small, visible action. If the scene is too abstract, it will ask for the most concrete action before generating titles.
 
+## Examples
+
+### Video meeting snack accident
+
+Input:
+
+```text
+视频会议以为关麦了，结果偷吃薯片被全公司听见
+```
+
+Output:
+
+```text
+Top titles:
+1. 我以为我 muted 了，但薯片没有
+2. 薯片在静音状态下仍被声呐捕获
+3. 关于线上会议擅自咀嚼的调查报告
+4. 静音键按下后出现进食冲动
+5. 每声咔嚓都在证明麦没关
+
+Recommended:
+我以为我 muted 了，但薯片没有
+```
+
+### Delivery tracking
+
+Input:
+
+```text
+外卖快到了，我一直盯着地图上骑手的小蓝点靠近
+```
+
+Output:
+
+```text
+Top titles:
+1. 沙发塔台正在管制外卖蓝点
+2. 人类与地图蓝点建立单方面连接
+3. 骑手离你两百米筷子已就位
+4. 外卖蓝点进入家庭空管区
+5. 本次外卖追踪行动全程受控
+
+Recommended:
+沙发塔台正在管制外卖蓝点
+```
+
+### Phone drop reflex
+
+Input:
+
+```text
+手机掉地上时，我第一反应用脚去垫，结果踢得更远
+```
+
+Output:
+
+```text
+Top titles:
+1. 关于手机被脚二次击飞的技术分析
+2. 脚垫那下是在给落地加弧线
+3. 人类触发无意义脚部拦截反射
+4. 手机坠落中脚部完成救援到助攻
+5. 脚以为在救它，其实在加速
+
+Recommended:
+关于手机被脚二次击飞的技术分析
+```
+
 ## Repository Layout
 
 ```text
