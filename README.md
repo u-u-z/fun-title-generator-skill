@@ -37,6 +37,28 @@ It is designed for Chinese-language contexts: 小红书、B 站、朋友圈、�
 
 好的输出应该是：表面冷静，底下荒谬。标题不解释为什么好笑，而是让读者在一秒内自己发现错位。
 
+## 理论参考 / Research Basis
+
+这个 skill 的方法不是纯靠语感拍脑袋，背后参考了一组幽默、认知语言学和语用学理论。完整展开见 `skills/fun-title-generator/references/theories.md`。
+
+- **乖讹论 / Incongruity Theory**  
+  幽默来自两个不相容解释框架的同时激活。标题把“偷吃薯片”放进“设备失控 / 声音事故”框架里，笑点来自这种错位。
+
+- **语义脚本理论 / Semantic Script Theory of Humor, Raskin 1985**  
+  一个幽默文本通常同时兼容两个相反脚本。这里的脚本可以是“正常开会”和“薯片暴露犯罪现场”。
+
+- **框架转换 / Frame-Shifting, Coulson 2000**  
+  读者先按正常日常场景理解，看到关键错位词后快速切换框架，切换瞬间产生笑感。
+
+- **概念整合 / Conceptual Blending, Fauconnier & Turner**  
+  标题把真实场景和错误框架融合成一个临时的新世界，比如“外卖蓝点”进入“塔台管制”系统。
+
+- **良性违背 / Benign Violation Theory, McGraw & Warren 2010**  
+  日常小事被严肃化是一种轻微违背，但因为低风险、无伤害，所以读者可以安全地觉得好笑。
+
+- **关联理论 / Relevance Theory, Sperber & Wilson**  
+  标题不解释笑点，而是给读者足够线索，让读者用最小努力自己完成那次“原来是这样”的重构。
+
 ## 安装 / Installation
 
 ### Codex
