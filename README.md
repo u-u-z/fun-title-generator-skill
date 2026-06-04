@@ -1,44 +1,47 @@
 # Fun Title Generator Skill
 
-`fun-title-generator` is a Codex/Cursor skill for generating Remi-style funny short titles for concrete everyday scenes. It is tuned for Xiaohongshu, Bilibili, Moments, video covers, and other lightweight social posts where the title should feel precise, deadpan, and a little absurd.
+`fun-title-generator` 是一个面向中文语境的 Codex/Cursor skill。  
+It is designed for Chinese-language contexts: 小红书、B 站、朋友圈、视频封面，以及其他需要中文短标题的轻量社交内容。
 
-The skill's core formula:
+它专门生成一种 Remi 风格的有趣短标题：观察具体，语气一本正经，笑点来自“把小事放进不属于它的严肃系统里”。不是营销号热梗，也不是段子手喊麦，而是轻巧、冷静、精准、有一点荒谬。
+
+核心公式 / Core formula:
 
 ```text
 真实小事 × 错位框架 × 严肃语气 × 精准表达 = 搞笑标题
 ```
 
-## How It Works
+## 工作原理 / How It Works
 
-The skill does not simply add internet slang to a scene. It turns a small, concrete action into a title by making the scene sound like it belongs to the wrong serious system.
+这个 skill 不是给场景硬加网络热词，而是把一个小而具体的动作，写成另一个严肃系统里的事件。
 
-For example, "waiting for delivery while staring at the map" becomes an air-traffic-control problem:
+比如“等外卖时一直盯着地图小蓝点”，会被改写成一个空中管制问题：
 
 ```text
 沙发塔台正在管制外卖蓝点
 ```
 
-The workflow has four steps:
+基本流程：
 
-1. **Extract the concrete action**  
-   The skill looks for the visible behavior, object, setting, and emotional pressure in the scene. It prefers "偷吃薯片时没关麦" over abstract prompts like "社死场景".
+1. **提取具体动作 / Extract the concrete action**  
+   优先找画面里真正发生的动作、物体、场景和压力点。它更喜欢“偷吃薯片时没关麦”，而不是“一个社死场景”。
 
-2. **Choose a mismatched frame**  
-   It maps the small scene into a serious frame such as documentary, incident report, scientific study, office workflow, air traffic control, legal notice, archaeology, or technical analysis.
+2. **选择错位框架 / Choose a mismatched frame**  
+   把日常小事放进纪录片、情况通报、科研报告、职场流程、空中管制、法律文书、考古发现、技术分析等严肃框架里。
 
-3. **Generate and filter candidates**  
-   It creates titles through two routes: frame-based absurdity and precise everyday observation. Weak candidates are removed when they are too vague, too explained, too long, or only funny because of generic exaggeration.
+3. **生成并筛选 / Generate and filter candidates**  
+   同时走两条路：一种靠错位框架制造荒谬感，一种靠精准观察命中日常共鸣。太泛、太解释、太长、只是在夸张的候选会被淘汰。
 
-4. **Validate the final title**  
-   The bundled validator checks the hard rules: short visible length, no obvious joke words like `哈哈哈` or `笑死`, no hostile sensitive words, and limited emoji.
+4. **校验最终标题 / Validate the final title**  
+   内置 validator 会检查硬规则：标题长度、显性搞笑词（如 `哈哈哈`、`笑死`）、攻击性敏感词、emoji 数量等。
 
-Good output should feel calm on the surface and absurd underneath. The title should not explain why it is funny; it should let the reader discover the mismatch in one second.
+好的输出应该是：表面冷静，底下荒谬。标题不解释为什么好笑，而是让读者在一秒内自己发现错位。
 
-## Installation
+## 安装 / Installation
 
 ### Codex
 
-If your Codex installation includes the built-in `skill-installer` skill, install directly from this GitHub repository:
+如果你的 Codex 里有内置的 `skill-installer` skill，可以直接从这个 GitHub repo 安装：
 
 ```sh
 python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
@@ -46,9 +49,9 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
   --path skills/fun-title-generator
 ```
 
-Restart Codex after installation so the new skill is loaded.
+安装后重启 Codex，让新 skill 被加载。
 
-If you do not have the installer script, install it manually:
+如果你没有这个 installer script，也可以手动安装：
 
 ```sh
 git clone https://github.com/u-u-z/fun-title-generator-skill.git
@@ -56,11 +59,11 @@ mkdir -p ~/.codex/skills
 cp -R fun-title-generator-skill/skills/fun-title-generator ~/.codex/skills/
 ```
 
-Then restart Codex.
+然后重启 Codex。
 
 ### Cursor
 
-For a project-local Cursor skill, copy the skill folder into your project's `.cursor/skills` directory:
+如果你想作为项目内的 Cursor skill 使用，把 skill 文件夹复制到项目的 `.cursor/skills` 目录：
 
 ```sh
 git clone https://github.com/u-u-z/fun-title-generator-skill.git
@@ -68,17 +71,17 @@ mkdir -p .cursor/skills
 cp -R fun-title-generator-skill/skills/fun-title-generator .cursor/skills/
 ```
 
-Your project should then contain:
+复制后项目里应该有：
 
 ```text
 .cursor/skills/fun-title-generator/SKILL.md
 ```
 
-Restart Cursor or reload the window if the skill does not appear immediately.
+如果没有立刻出现，重启 Cursor 或 reload window。
 
-### Update
+### 更新 / Update
 
-To update a manual installation, pull the latest repository version and copy the skill folder again:
+手动安装后，如果要更新：
 
 ```sh
 cd fun-title-generator-skill
@@ -86,29 +89,29 @@ git pull
 cp -R skills/fun-title-generator ~/.codex/skills/
 ```
 
-For Cursor, replace `~/.codex/skills/` with your project's `.cursor/skills/` directory.
+如果是 Cursor，把 `~/.codex/skills/` 换成你项目里的 `.cursor/skills/`。
 
-## Use
+## 使用 / Use
 
-Invoke it explicitly:
+显式调用：
 
 ```text
 Use $fun-title-generator to generate titles for: 视频会议以为关麦了，结果偷吃薯片被全公司听见
 ```
 
-The skill works best when the input includes a small, visible action. If the scene is too abstract, it will ask for the most concrete action before generating titles.
+这个 skill 最适合有具体画面的输入。如果你只说“帮我想一个社死标题”，它可能会先追问：这个场景里最具体的动作是什么？
 
-## Examples
+## 案例 / Examples
 
-### Video meeting snack accident
+### 视频会议偷吃薯片 / Video meeting snack accident
 
-Input:
+输入 / Input:
 
 ```text
 视频会议以为关麦了，结果偷吃薯片被全公司听见
 ```
 
-Output:
+输出 / Output:
 
 ```text
 Top titles:
@@ -122,15 +125,15 @@ Recommended:
 我以为我 muted 了，但薯片没有
 ```
 
-### Delivery tracking
+### 盯外卖小蓝点 / Delivery tracking
 
-Input:
+输入 / Input:
 
 ```text
 外卖快到了，我一直盯着地图上骑手的小蓝点靠近
 ```
 
-Output:
+输出 / Output:
 
 ```text
 Top titles:
@@ -144,15 +147,15 @@ Recommended:
 沙发塔台正在管制外卖蓝点
 ```
 
-### Phone drop reflex
+### 手机掉落脚部救援失败 / Phone drop reflex
 
-Input:
+输入 / Input:
 
 ```text
 手机掉地上时，我第一反应用脚去垫，结果踢得更远
 ```
 
-Output:
+输出 / Output:
 
 ```text
 Top titles:
@@ -166,7 +169,7 @@ Recommended:
 关于手机被脚二次击飞的技术分析
 ```
 
-## Repository Layout
+## 项目结构 / Repository Layout
 
 ```text
 skills/fun-title-generator/
@@ -180,9 +183,9 @@ skills/fun-title-generator/
     └── validate_titles.py
 ```
 
-## Validate Titles
+## 标题校验 / Validate Titles
 
-The bundled validator checks hard title rules such as visible length, obvious joke words, sensitive words, and emoji count:
+内置 validator 用来检查标题硬规则：可见字符长度、显性搞笑词、敏感词、emoji 数量等。
 
 ```bash
 python3 skills/fun-title-generator/scripts/validate_titles.py \
@@ -190,6 +193,6 @@ python3 skills/fun-title-generator/scripts/validate_titles.py \
   "沙发塔台正在管制外卖蓝点"
 ```
 
-## License
+## 许可证 / License
 
 MIT
