@@ -5,11 +5,37 @@ It is designed for Chinese-language contexts, especially Xiaohongshu, Bilibili, 
 
 本项目用于生成 Remi 风格的中文幽默短标题。它关注的是具体日常场景中的动作、物体和心理张力，并通过“错位框架”将低风险小事改写成正式、冷静、荒谬但可理解的标题。
 
+它不是一个通用文案生成器，而是一个面向 agent 的可复用技能包：`SKILL.md` 定义调用条件和生成流程，`references/` 保存方法论、工具箱和案例库，`scripts/` 提供可执行的标题校验器。目标是让 Codex、Cursor、OpenCode 等工具在处理中文社交标题时，能够复用同一套风格判断、风险边界和输出约束。
+
 核心公式 / Core formula:
 
 ```text
 真实小事 × 错位框架 × 严肃语气 × 精准表达 = 搞笑标题
 ```
+
+## 项目概览 / Project Overview
+
+`fun-title-generator-skill` 将一个中文幽默标题生成方法封装为标准 skills repo。它包含：
+
+- **Skill instructions**：定义什么时候使用该 skill、如何拆解场景、如何生成和筛选标题。
+- **Research notes**：说明“错位、合理、态度”三项原则与幽默研究、认知语言学和语用学之间的关系。
+- **Toolbox**：提供纪录片、情况通报、科研报告、技术分析、空中管制等错位框架，以及筛选标准和失败模式。
+- **Example bank**：保存经过校准的中文场景、候选标题、用户偏好和淘汰原因。
+- **Validator script**：对最终标题进行长度、显性搞笑词、敏感词和 emoji 检查。
+- **Multi-agent installation**：提供 Codex、Cursor、OpenCode 的安装路径说明。
+
+### 设计目标 / Goals
+
+- 生成适合中文社交媒体语境的短标题，而不是英文幽默模板的直译。
+- 保持标题可发布：短、清楚、无显性解释、无攻击性敏感词。
+- 让输出风格可复用，而不是依赖一次性 prompt。
+- 为创作判断提供可追溯的理论来源和案例依据。
+
+### 非目标 / Non-goals
+
+- 不保证生成正式品牌 slogan 或商业广告主标题。
+- 不处理高风险事件或真实伤害场景的娱乐化表达。
+- 不声称完整模拟幽默理论；理论部分只用于解释和约束该 skill 的生成策略。
 
 ## 适用范围 / Scope
 
