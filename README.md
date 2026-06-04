@@ -8,6 +8,32 @@ The skill's core formula:
 真实小事 × 错位框架 × 严肃语气 × 精准表达 = 搞笑标题
 ```
 
+## How It Works
+
+The skill does not simply add internet slang to a scene. It turns a small, concrete action into a title by making the scene sound like it belongs to the wrong serious system.
+
+For example, "waiting for delivery while staring at the map" becomes an air-traffic-control problem:
+
+```text
+沙发塔台正在管制外卖蓝点
+```
+
+The workflow has four steps:
+
+1. **Extract the concrete action**  
+   The skill looks for the visible behavior, object, setting, and emotional pressure in the scene. It prefers "偷吃薯片时没关麦" over abstract prompts like "社死场景".
+
+2. **Choose a mismatched frame**  
+   It maps the small scene into a serious frame such as documentary, incident report, scientific study, office workflow, air traffic control, legal notice, archaeology, or technical analysis.
+
+3. **Generate and filter candidates**  
+   It creates titles through two routes: frame-based absurdity and precise everyday observation. Weak candidates are removed when they are too vague, too explained, too long, or only funny because of generic exaggeration.
+
+4. **Validate the final title**  
+   The bundled validator checks the hard rules: short visible length, no obvious joke words like `哈哈哈` or `笑死`, no hostile sensitive words, and limited emoji.
+
+Good output should feel calm on the surface and absurd underneath. The title should not explain why it is funny; it should let the reader discover the mismatch in one second.
+
 ## Installation
 
 ### Codex
