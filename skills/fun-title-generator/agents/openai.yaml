@@ -1,0 +1,7 @@
+interface:
+  display_name: "Fun Title Generator"
+  short_description: "为日常小场景生成 Remi 风格幽默短标题"
+  default_prompt: "Use $fun-title-generator to generate five funny Xiaohongshu-style titles for this concrete everyday scene."
+
+policy:
+  allow_implicit_invocation: true
