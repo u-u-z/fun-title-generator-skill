@@ -134,20 +134,22 @@ description: 当用户需要为日常/亚文化小场景起一个像 Remi 的小
 
 坏标题通常是在"告诉别人这很好笑"。好标题是让读者自己发现它很好笑。
 
-### 固定校验脚本
+### 校验脚本与降级校验
 
-生成 TOP 5 和最推荐标题前，必须用 `scripts/validate_titles.py` 做硬规则校验：
+生成 TOP 5 和最推荐标题前，优先用 `scripts/validate_titles.py` 做硬规则校验：
 
 ```bash
 python3 .cursor/skills/fun-title-generator/scripts/validate_titles.py "标题1" "标题2" "标题3"
 ```
+
+并不是所有安装或上传 skills 的环境都能读取本地文件或执行这个 Python 脚本。如果 `validate_titles.py` 文件无法读取、没有找到，或当前环境不支持执行本地脚本，直接跳过脚本校验，改用 LLM 按下列同一套规则逐条检查并修正；不要因为脚本不可用而中断生成。
 
 校验规则：
 - 最终推荐标题不超过 20 个可见字符。
 - 自动移除内置敏感词；如有项目专用敏感词，用 `--sensitive-words` 或 `--sensitive-file` 追加。
 - emoji 不超过 3 个；默认会删除超出的 emoji。
 
-脚本返回 `FIX` 时，必须根据输出里的 `sanitized` 和 `issues` 重新压缩或改写，不能把未通过校验的原始标题放进最推荐。
+脚本返回 `FIX` 时，必须根据输出里的 `sanitized` 和 `issues` 重新压缩或改写，不能把未通过校验的原始标题放进最推荐。使用 LLM 降级校验时，也必须先修正长度、敏感词、emoji 和语气问题，再输出最推荐标题。
 
 ### 长度策略
 
