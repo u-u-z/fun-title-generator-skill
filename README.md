@@ -217,6 +217,18 @@ cp -R skills/fun-title-generator ~/.codex/skills/
 
 Cursor 用户将目标目录替换为项目内 `.cursor/skills/`；OpenCode 用户替换为 `~/.config/opencode/skills/` 或 `.opencode/skills/`。
 
+## 同步到 kigland-media / Sync to kigland-media
+
+本仓库在 `kigland-media` 项目中有一份使用处拷贝：`.cursor/skills/fun-title-generator/`。两份拷贝必须保持逐字节一致，请始终在本仓库修改，不要直接编辑使用处拷贝。
+
+修改 `skills/fun-title-generator/` 下的任何文件后，运行同步脚本：
+
+```sh
+scripts/sync-to-cursor.sh
+```
+
+脚本使用 `rsync -a --delete` 将源仓库拷贝同步到 kigland-media 的使用处拷贝，并用 `diff -rq` 验证两份拷贝一致；验证失败时以非零状态退出。
+
 ## 使用 / Usage
 
 显式调用：
